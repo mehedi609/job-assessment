@@ -1,0 +1,31 @@
+{
+  "name": "job-assesment",
+  "version": "1.0.0",
+  "description": "Find Solution of a problem for job assesment",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && tsc",
+    "dev": "nodemon",
+    "lint": "npx eslint . --ext .js,.ts"
+  },
+  "keywords": [],
+  "author": "S M Mehedi Hasan",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16.13.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5",
+    "ts-node": "^10.9.1",
+    "nodemon": "^2.0.19",
+    "@typescript-eslint/parser": "^5.30.7"
+  }
+}
