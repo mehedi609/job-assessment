@@ -7,13 +7,6 @@
     "operation": { "amount": 200.0, "currency": "EUR" }
   },
   {
-    "date": "2016-01-05",
-    "user_id": 1,
-    "user_type": "natural",
-    "type": "cash_in",
-    "operation": { "amount": 3312.0, "currency": "EUR" }
-  },
-  {
     "date": "2016-01-06",
     "user_id": 2,
     "user_type": "juridical",
@@ -57,6 +50,13 @@
   },
   {
     "date": "2016-01-10",
+    "user_id": 2,
+    "user_type": "natural",
+    "type": "cash_out",
+    "operation": { "amount": 500.0, "currency": "EUR" }
+  },
+  {
+    "date": "2016-01-10",
     "user_id": 3,
     "user_type": "natural",
     "type": "cash_out",
@@ -65,6 +65,20 @@
   {
     "date": "2016-02-15",
     "user_id": 1,
+    "user_type": "natural",
+    "type": "cash_out",
+    "operation": { "amount": 300.0, "currency": "EUR" }
+  },
+  {
+    "date": "2016-02-15",
+    "user_id": 2,
+    "user_type": "natural",
+    "type": "cash_out",
+    "operation": { "amount": 300.0, "currency": "EUR" }
+  },
+  {
+    "date": "2016-02-15",
+    "user_id": 3,
     "user_type": "natural",
     "type": "cash_out",
     "operation": { "amount": 300.0, "currency": "EUR" }
