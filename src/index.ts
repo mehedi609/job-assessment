@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { IInputData, WithdrawType } from './interfaces';
-import { cashIn } from './helpers/cash-in';
-import { cashOut } from './helpers/cash-out';
+import { cashIn } from './lib/cash-in';
+import { cashOut } from './lib/cash-out';
 
 const tempDisplay = (el: any, val: string) =>
   console.log(

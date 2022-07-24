@@ -1,28 +1,26 @@
 import moment from 'moment';
 import { IInputData, UserType } from '../interfaces';
-import { fixedTwoDigitsAfterDecimal, roundToUpper } from './round-to-upper';
 import {
-  findUser,
-  insertNewUser,
-  isUserExists,
-  removeUser,
-  updateUser,
-} from './cash-out-natural-users';
+  fixedTwoDigitsAfterDecimal,
+  roundToUpper,
+} from '../utils/round-to-upper';
+import cashOutNaturalsService from './cash-out-natural-users';
 import {
   CASH_OUT_COMMISSION_FESS,
   CASH_OUT_LEAST_COMMISSION,
 } from '../config/const';
-
-export const calculateCommission = (amount: number): number =>
-  amount * CASH_OUT_COMMISSION_FESS;
+import { calculateCommission } from '../utils/calculate-comission';
 
 export const cashOutNaturals = (data: IInputData): string => {
   let commission = 0;
 
-  if (!isUserExists(data.user_id)) {
-    commission = calculateCommission(insertNewUser(data));
+  if (!cashOutNaturalsService.isUserExists(data.user_id)) {
+    commission = calculateCommission(
+      cashOutNaturalsService.insertNewUser(data),
+      CASH_OUT_COMMISSION_FESS
+    );
   } else {
-    const user = findUser(data.user_id);
+    const user = cashOutNaturalsService.findUser(data.user_id);
 
     if (!user) throw new Error('User not found');
 
@@ -30,11 +28,17 @@ export const cashOutNaturals = (data: IInputData): string => {
 
     // user is still in same week days range (monday - sunday)
     if (difference > -1) {
-      commission = calculateCommission(updateUser(data, user));
+      commission = calculateCommission(
+        cashOutNaturalsService.updateUser(data, user),
+        CASH_OUT_COMMISSION_FESS
+      );
     } else {
       // a new week start for a user
-      removeUser(data.user_id);
-      commission = calculateCommission(insertNewUser(data));
+      cashOutNaturalsService.removeUser(data.user_id);
+      commission = calculateCommission(
+        cashOutNaturalsService.insertNewUser(data),
+        CASH_OUT_COMMISSION_FESS
+      );
     }
   }
 
@@ -42,7 +46,7 @@ export const cashOutNaturals = (data: IInputData): string => {
 };
 
 export const cashOutJuridical = (amount: number): string => {
-  const commission = calculateCommission(amount);
+  const commission = calculateCommission(amount, CASH_OUT_COMMISSION_FESS);
 
   if (commission < CASH_OUT_LEAST_COMMISSION) {
     return fixedTwoDigitsAfterDecimal(CASH_OUT_LEAST_COMMISSION);
