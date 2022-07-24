@@ -1,17 +1,16 @@
 import { IInputData } from '../interfaces';
 import { fixedTwoDigitsAfterDecimal, roundToUpper } from './round-to-upper';
-
-const COMMISSION_FESS = 0.03 / 100;
-const MAX_COMMISSION = 5.0;
+import {
+  CASH_IN_COMMISSION_FESS,
+  CASH_IN_MAX_COMMISSION,
+} from '../config/const';
 
 export const cashIn = (data: IInputData): string => {
-  const commission = data.operation.amount * COMMISSION_FESS;
+  const commission = data.operation.amount * CASH_IN_COMMISSION_FESS;
 
-  if (commission > MAX_COMMISSION) {
-    return fixedTwoDigitsAfterDecimal(MAX_COMMISSION);
+  if (commission > CASH_IN_MAX_COMMISSION) {
+    return fixedTwoDigitsAfterDecimal(CASH_IN_MAX_COMMISSION);
   }
-
-  // console.log(commission);
 
   return roundToUpper(commission);
 };

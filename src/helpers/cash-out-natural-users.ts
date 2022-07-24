@@ -1,16 +1,14 @@
 import moment from 'moment';
 import { IInputData, IUserMap } from '../interfaces';
+import { MINIMUM_REQUIRED_AMOUNT } from '../config/const';
 
 let USERS_MAP: IUserMap[] = [];
-const MINIMUM_REQUIRED_AMOUNT = 1000;
 
 export const insertNewUser = (data: IInputData): number => {
   const startDate = moment(data.date);
   const isoWeekDay = startDate.isoWeekday();
   let amount: number;
   let remainingAmount = 0;
-
-  console.log(new Date(data.date).toISOString());
 
   if (data.operation.amount > MINIMUM_REQUIRED_AMOUNT) {
     amount = MINIMUM_REQUIRED_AMOUNT;
@@ -24,12 +22,12 @@ export const insertNewUser = (data: IInputData): number => {
 
   const userObj: IUserMap = {
     user_id: data.user_id,
-    startDate: startDate.add(1, 'd').toISOString(),
-    endDate: endDate.add(1, 'd').toISOString(),
+    startDate: startDate.utcOffset(360).format('YYYY-MM-DD'),
+    endDate: endDate.utcOffset(360).format('YYYY-MM-DD'),
     amount,
   };
 
-  console.log(userObj);
+  // console.log(userObj);
 
   USERS_MAP = [...USERS_MAP, userObj];
 
@@ -62,8 +60,8 @@ export const updateUser = (data: IInputData, user: IUserMap): number => {
     updatedAmount = totalAmount;
   }
 
-  const userObj = { ...user, amount, updatedAmount };
-  console.log(userObj);
+  // const userObj = { ...user, amount, updatedAmount };
+  // console.log(userObj);
 
   USERS_MAP = USERS_MAP.map((u) =>
     u.user_id === user.user_id

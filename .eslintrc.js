@@ -15,5 +15,6 @@ module.exports = {
     'function-paren-newline': 'off',
     'no-confusing-arrow': 'off',
     '@typescript-eslint/indent': 'off',
+    'prefer-destructuring': 'off',
   },
 };

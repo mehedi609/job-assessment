@@ -7,15 +7,16 @@ import {
   isUserExists,
   removeUser,
   updateUser,
-} from './map-natural-users';
-
-const COMMISSION_FESS = 0.3 / 100;
-const LEAST_COMMISSION = 0.5;
+} from './cash-out-natural-users';
+import {
+  CASH_OUT_COMMISSION_FESS,
+  CASH_OUT_LEAST_COMMISSION,
+} from '../config/const';
 
 export const calculateCommission = (amount: number): number =>
-  amount * COMMISSION_FESS;
+  amount * CASH_OUT_COMMISSION_FESS;
 
-const cashOutNaturals = (data: IInputData): string => {
+export const cashOutNaturals = (data: IInputData): string => {
   let commission = 0;
 
   if (!isUserExists(data.user_id)) {
@@ -26,8 +27,8 @@ const cashOutNaturals = (data: IInputData): string => {
     if (!user) throw new Error('User not found');
 
     const difference = moment(user.endDate).diff(moment(data.date), 'd');
-    // console.log(difference);
 
+    // user is still in same week days range (monday - sunday)
     if (difference > -1) {
       commission = calculateCommission(updateUser(data, user));
     } else {
@@ -36,15 +37,15 @@ const cashOutNaturals = (data: IInputData): string => {
       commission = calculateCommission(insertNewUser(data));
     }
   }
-  // const commission = data.operation.amount * COMMISSION_FESS;
+
   return roundToUpper(commission);
 };
 
 export const cashOutJuridical = (amount: number): string => {
   const commission = calculateCommission(amount);
 
-  if (commission < LEAST_COMMISSION) {
-    return fixedTwoDigitsAfterDecimal(LEAST_COMMISSION);
+  if (commission < CASH_OUT_LEAST_COMMISSION) {
+    return fixedTwoDigitsAfterDecimal(CASH_OUT_LEAST_COMMISSION);
   }
 
   return roundToUpper(commission);

@@ -1,0 +1,6 @@
+export const CASH_IN_COMMISSION_FESS = 0.03 / 100;
+export const CASH_IN_MAX_COMMISSION = 5.0;
+
+export const CASH_OUT_COMMISSION_FESS = 0.3 / 100;
+export const CASH_OUT_LEAST_COMMISSION = 0.5;
+export const MINIMUM_REQUIRED_AMOUNT = 1000;
