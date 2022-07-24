@@ -1,7 +1,7 @@
 {
   "name": "job-assesment",
   "version": "1.0.0",
-  "description": "Find Solution of a problem for job assesment",
+  "description": "Find Solution of a problem for job assessment",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,7 @@
   "author": "S M Mehedi Hasan",
   "license": "ISC",
   "engines": {
-    "node": ">=16.13.2"
+    "node": ">=16.13.0"
   },
   "dependencies": {
     "moment": "^2.29.4",

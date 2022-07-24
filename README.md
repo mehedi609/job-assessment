@@ -11,7 +11,11 @@
 
 ## Table of Contents
 
+- [Requirements](#Requirements)
 - [How to run](#how-to-run)
+
+## Requirements
+- Node version >= 16.13.0
 
 <!-- HOW TO RUN -->
 
