@@ -21,7 +21,7 @@ Please follow the below instructions to run this project in your computer:
 
 1. Clone this repository
    ```sh
-   git clone https://github.com/mehedi609/job-assessment
+   git clone https://github.com/mehedi609/job-assessment.git
    ```
    
 2. Use below command in your terminal to install node_modules
@@ -39,8 +39,13 @@ Please follow the below instructions to run this project in your computer:
    ```sh
    node dist/index.js input.json
    ```
+   or
+   ```sh
+   cd dist
+   node index.js input.json
+   ```
    
-6. To test, run the below command in your terminal
+7. To test, run the below command in your terminal
    ```sh
    npm run test
    ```
