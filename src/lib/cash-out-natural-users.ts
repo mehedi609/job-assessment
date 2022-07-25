@@ -85,38 +85,50 @@ const cashOutNaturalsService = {
 
     return updatedUser;
   },
+
+  hello: () => {
+    return 'Hello';
+  },
 };
 
 export default cashOutNaturalsService;
 
-// export const insertNewUser = (data: IInputData): number => {
+// export const insertNewUser = (data: IInputData): IUserMap | string => {
+//   return 'Hello';
 //   const startDate = moment(data.date);
+//   // console.log(startDate.utcOffset(360).format('YYYY-MM-DD'));
+//
 //   const isoWeekDay = startDate.isoWeekday();
-//   let amount: number;
-//   let remainingAmount = 0;
+//   let nonCommissionedAmount: number;
+//   let commissionedAmount = 0;
 //
 //   if (data.operation.amount > MINIMUM_REQUIRED_AMOUNT) {
-//     amount = MINIMUM_REQUIRED_AMOUNT;
-//     remainingAmount = data.operation.amount - MINIMUM_REQUIRED_AMOUNT;
+//     nonCommissionedAmount = MINIMUM_REQUIRED_AMOUNT;
+//     commissionedAmount = data.operation.amount - MINIMUM_REQUIRED_AMOUNT;
 //   } else {
-//     amount = data.operation.amount;
+//     nonCommissionedAmount = data.operation.amount;
 //   }
 //
-//   let endDate = startDate.clone();
-//   endDate = endDate.add(7 - isoWeekDay, 'd');
+//   // let endDate = startDate.clone();
+//   const endDate = startDate
+//     .add(7 - isoWeekDay, 'd')
+//     .utcOffset(360)
+//     .format('YYYY-MM-DD');
+//   // console.log(endDate);
 //
-//   const userObj: IUserMap = {
+//   const newUser: IUserMap = {
 //     user_id: data.user_id,
-//     startDate: startDate.utcOffset(360).format('YYYY-MM-DD'),
-//     endDate: endDate.utcOffset(360).format('YYYY-MM-DD'),
-//     amount,
+//     // startDate: startDate.utcOffset(360).format('YYYY-MM-DD'),
+//     endDate,
+//     nonCommissionedAmount,
+//     commissionedAmount,
 //   };
 //
 //   // console.log(userObj);
 //
-//   USERS_MAP = [...USERS_MAP, userObj];
+//   USERS_MAP = [...USERS_MAP, newUser];
 //
-//   return remainingAmount;
+//   return newUser;
 // };
 
 // export const isUserExists = (user_id: number): boolean => {
