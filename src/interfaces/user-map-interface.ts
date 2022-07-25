@@ -1,6 +1,6 @@
 export interface IUserMap {
   user_id: number;
-  startDate: string;
   endDate: string;
-  amount: number;
+  nonCommissionedAmount: number;
+  commissionedAmount: number;
 }

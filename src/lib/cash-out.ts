@@ -16,7 +16,7 @@ export const cashOutNaturals = (data: IInputData): string => {
 
   if (!cashOutNaturalsService.isUserExists(data.user_id)) {
     commission = calculateCommission(
-      cashOutNaturalsService.insertNewUser(data),
+      cashOutNaturalsService.insertNewUser(data).commissionedAmount,
       CASH_OUT_COMMISSION_FESS
     );
   } else {
@@ -29,14 +29,14 @@ export const cashOutNaturals = (data: IInputData): string => {
     // user is still in same week days range (monday - sunday)
     if (difference > -1) {
       commission = calculateCommission(
-        cashOutNaturalsService.updateUser(data, user),
+        cashOutNaturalsService.updateUser(data, user).commissionedAmount,
         CASH_OUT_COMMISSION_FESS
       );
     } else {
       // a new week start for a user
       cashOutNaturalsService.removeUser(data.user_id);
       commission = calculateCommission(
-        cashOutNaturalsService.insertNewUser(data),
+        cashOutNaturalsService.insertNewUser(data).commissionedAmount,
         CASH_OUT_COMMISSION_FESS
       );
     }
