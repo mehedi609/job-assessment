@@ -1,11 +1,15 @@
 import moment from 'moment';
-import { IInputData, IUserMap } from '../interfaces';
+import { IInputData, IUserMap, UserType } from '../interfaces';
 import { MINIMUM_REQUIRED_AMOUNT } from '../config/const';
 
 let USERS_MAP: IUserMap[] = [];
 
 const cashOutNaturalsService = {
   insertNewUser: (data: IInputData): IUserMap => {
+    if (data.user_type !== UserType.NATURAL) {
+      throw new Error('User type must be NATURAL');
+    }
+
     const startDate = moment(data.date);
     // console.log(startDate.utcOffset(360).format('YYYY-MM-DD'));
 
@@ -35,7 +39,7 @@ const cashOutNaturalsService = {
       commissionedAmount,
     };
 
-    // console.log(userObj);
+    console.log(newUser);
 
     USERS_MAP = [...USERS_MAP, newUser];
 
@@ -83,11 +87,9 @@ const cashOutNaturalsService = {
         : u
     );
 
-    return updatedUser;
-  },
+    console.log(updatedUser);
 
-  hello: () => {
-    return 'Hello';
+    return updatedUser;
   },
 };
 

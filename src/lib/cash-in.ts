@@ -7,7 +7,7 @@ import {
   CASH_IN_COMMISSION_FESS,
   CASH_IN_MAX_COMMISSION,
 } from '../config/const';
-import { calculateCommission } from '../utils/calculate-comission';
+import { calculateCommission } from '../utils/calculate-commission';
 
 export const cashIn = (data: IInputData): string => {
   const commission = calculateCommission(

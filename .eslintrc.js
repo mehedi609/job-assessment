@@ -1,9 +1,20 @@
 module.exports = {
   extends: ['airbnb-base', 'airbnb-typescript/base'],
-  plugins: ['import', 'prettier'],
+  plugins: ['import', 'prettier', 'jest'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.eslint.json',
+  },
+  overrides: [
+    {
+      files: ['**/*.test.js', '**/*.spec.js'],
+      env: { 'jest/globals': true },
+      plugins: ['jest'],
+      extends: ['plugin:jest/recommended'],
+    },
+  ],
+  env: {
+    jest: true,
   },
   rules: {
     'object-curly-newline': 'off',
@@ -16,5 +27,10 @@ module.exports = {
     'no-confusing-arrow': 'off',
     '@typescript-eslint/indent': 'off',
     'prefer-destructuring': 'off',
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/no-identical-title': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'jest/valid-expect': 'error',
   },
 };

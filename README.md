@@ -38,7 +38,7 @@ Please follow the below instructions to run this project in your computer:
    npm run build
    ```
    
-4. Copy and paste a `*.json` file in dist folder containing input data
+4. Copy and paste a `*.json` file in `dist` folder containing input data
 5. To run the project, run the below command in your terminal from root dir
    ```sh
    node dist/index.js input.json
@@ -49,6 +49,16 @@ Please follow the below instructions to run this project in your computer:
    node index.js input.json
    ```
    
+6. If you place `*.json` file rather than `dist` folder, then provide the path of the folder
+   ```sh
+      node dist/index.js path/to/folder/input.json
+      ```
+
+   - e.g. if you place `*.json` file in a `data` dir, the command should look like 
+   ```sh
+      node dist/index.js data/input.json
+      ```
+
 7. To test, run the below command in your terminal
    ```sh
    npm run test
