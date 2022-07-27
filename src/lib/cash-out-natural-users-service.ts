@@ -2,8 +2,6 @@ import moment from 'moment';
 import { IInputData, IUserMap, UserType } from '../interfaces';
 import { MINIMUM_REQUIRED_AMOUNT } from '../config/const';
 
-let USERS_MAP: IUserMap[] = [];
-
 const cashOutNaturalsService = {
   insertNewUser: (data: IInputData): IUserMap => {
     if (data.user_type !== UserType.NATURAL) {
@@ -39,25 +37,24 @@ const cashOutNaturalsService = {
       commissionedAmount,
     };
 
-    console.log(newUser);
+    // console.log(newUser);
 
-    USERS_MAP = [...USERS_MAP, newUser];
+    // USERS_MAP = [...USERS_MAP, newUser];
 
     return newUser;
   },
 
-  isUserExists: (user_id: number): boolean => {
+  isUserExists: (user_id: number, USERS_MAP: IUserMap[]): boolean => {
     if (USERS_MAP.length === 0) return false;
 
     return !!USERS_MAP.filter((user) => user.user_id === user_id).length;
   },
 
-  findUser: (user_id: number): IUserMap | undefined =>
+  findUser: (user_id: number, USERS_MAP: IUserMap[]): IUserMap | undefined =>
     USERS_MAP.find((user) => user.user_id === user_id),
 
-  removeUser: (user_id: number): void => {
-    USERS_MAP = USERS_MAP.filter((user) => user.user_id !== user_id);
-  },
+  removeUser: (user_id: number, USERS_MAP: IUserMap[]): IUserMap[] =>
+    USERS_MAP.filter((user) => user.user_id !== user_id),
 
   updateUser: (data: IInputData, user: IUserMap): IUserMap => {
     let commissionedAmount = 0;
@@ -79,15 +76,15 @@ const cashOutNaturalsService = {
     };
     // console.log(userObj);
 
-    USERS_MAP = USERS_MAP.map((u: IUserMap) =>
-      u.user_id === user.user_id
-        ? {
-            ...updatedUser,
-          }
-        : u
-    );
+    // USERS_MAP = USERS_MAP.map((u: IUserMap) =>
+    //   u.user_id === user.user_id
+    //     ? {
+    //         ...updatedUser,
+    //       }
+    //     : u
+    // );
 
-    console.log(updatedUser);
+    // console.log(updatedUser);
 
     return updatedUser;
   },
