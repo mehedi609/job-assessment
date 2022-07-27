@@ -2,7 +2,7 @@
   format a number such that 2 places after decimal point
   to match the answer format
 * */
-export const fixedTwoDigitsAfterDecimal = (val: any, digits = 2): string => {
+export const fixedNthDigitsAfterDecimal = (val: any, digits = 2): string => {
   if (Math.abs(val) < 1.0) {
     const e = parseInt(val.toString().split('e-')[1], 10);
     if (e) {
@@ -35,8 +35,8 @@ export const roundToUpper = (val: number): string => {
   if (!Number.isInteger(newVal) && newVal < 100) {
     const roundedVal = Math.ceil(newVal) / 100;
 
-    return fixedTwoDigitsAfterDecimal(roundedVal);
+    return fixedNthDigitsAfterDecimal(roundedVal);
   }
 
-  return fixedTwoDigitsAfterDecimal(val);
+  return fixedNthDigitsAfterDecimal(val);
 };

@@ -46,7 +46,6 @@ describe('Test CashOutNaturals User function', () => {
   });
 
   describe('Assume a natural user already has cashed out 700, he tried to cash out 500', () => {
-    // describe('if user cannot be found by user_id', () => {
     it('should throw an error if user cannot be found by user_id', () => {
       const data: IInputData = {
         date: '2016-01-06',
@@ -66,7 +65,6 @@ describe('Test CashOutNaturals User function', () => {
 
       expect(() => cashOutNaturals(data)).toThrow();
     });
-    // });
 
     beforeEach(() => {
       cashOutNaturalsService.isUserExists = jest

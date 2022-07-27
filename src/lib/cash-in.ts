@@ -1,6 +1,6 @@
 import { IInputData } from '../interfaces';
 import {
-  fixedTwoDigitsAfterDecimal,
+  fixedNthDigitsAfterDecimal,
   roundToUpper,
 } from '../utils/round-to-upper';
 import {
@@ -16,7 +16,7 @@ export const cashIn = (data: IInputData): string => {
   );
 
   if (commission > CASH_IN_MAX_COMMISSION) {
-    return fixedTwoDigitsAfterDecimal(CASH_IN_MAX_COMMISSION);
+    return fixedNthDigitsAfterDecimal(CASH_IN_MAX_COMMISSION);
   }
 
   return roundToUpper(commission);

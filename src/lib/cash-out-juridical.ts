@@ -1,5 +1,5 @@
 import {
-  fixedTwoDigitsAfterDecimal,
+  fixedNthDigitsAfterDecimal,
   roundToUpper,
 } from '../utils/round-to-upper';
 import {
@@ -12,7 +12,7 @@ export const cashOutJuridical = (amount: number): string => {
   const commission = calculateCommission(amount, CASH_OUT_COMMISSION_FESS);
 
   if (commission < CASH_OUT_LEAST_COMMISSION) {
-    return fixedTwoDigitsAfterDecimal(CASH_OUT_LEAST_COMMISSION);
+    return fixedNthDigitsAfterDecimal(CASH_OUT_LEAST_COMMISSION);
   }
 
   return roundToUpper(commission);
