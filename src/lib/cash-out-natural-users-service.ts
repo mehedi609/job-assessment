@@ -37,7 +37,7 @@ const cashOutNaturalsService = {
       commissionedAmount,
     };
 
-    // console.log(newUser);
+    console.log(newUser);
 
     // USERS_MAP = [...USERS_MAP, newUser];
 
@@ -84,7 +84,7 @@ const cashOutNaturalsService = {
     //     : u
     // );
 
-    // console.log(updatedUser);
+    console.log(updatedUser);
 
     return updatedUser;
   },
