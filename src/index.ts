@@ -3,12 +3,12 @@ import { IInputData, WithdrawType } from './interfaces';
 import { cashIn } from './lib/cash-in';
 import { cashOut } from './lib/cash-out';
 
-export const parseData = async (path: string = 'input.json') => {
+const parseData = async (path: string = 'input.json') => {
   const data = await fs.promises.readFile(`${__dirname}/${path}`, 'utf8');
   return JSON.parse(data);
 };
 
-export const main = async () => {
+const main = async () => {
   let path: string;
   if (process.env.NODE_ENV === 'development') {
     path = 'input.json';
