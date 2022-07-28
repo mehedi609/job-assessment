@@ -5,6 +5,7 @@
     "**/__mocks__/*",
     "**/__tests__/*",
     "**/tests/*",
-    "jest.config.ts"
+    "jest.config.ts",
+    "**/coverage/*"
   ]
 }

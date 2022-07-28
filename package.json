@@ -4,7 +4,7 @@
   "description": "Find Solution of a problem for job assessment",
   "main": "index.ts",
   "scripts": {
-    "test": "jest --collectCoverage",
+    "test": "jest",
     "test:watch": "jest --watchAll --collectCoverage",
     "build": "rm -rf dist && tsc --project tsconfig.build.json",
     "dev": "cross-env NODE_ENV=development nodemon",
