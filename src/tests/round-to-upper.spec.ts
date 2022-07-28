@@ -1,7 +1,7 @@
 import {
   fixedNthDigitsAfterDecimal,
   roundToUpper,
-} from '../src/utils/round-to-upper';
+} from '../utils/round-to-upper';
 
 describe('Test roundToUpper function', () => {
   describe('Test rounded to the smallest currency item (cents)', () => {

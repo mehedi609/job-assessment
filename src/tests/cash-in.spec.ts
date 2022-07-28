@@ -1,7 +1,7 @@
-import { cashIn } from '../src/lib/cash-in';
+import { cashIn } from '../lib/cash-in';
 
-describe('Test CashIn Functionality', function () {
-  it('should return max commission 5.00, if calculated commission > cash in max amount (5.0)', function () {
+describe('Test CashIn Functionality', () => {
+  it('should return max commission 5.00, if calculated commission > cash in max amount (5.0)', () => {
     const inputData = {
       date: '2016-01-10',
       user_id: 2,
@@ -15,7 +15,7 @@ describe('Test CashIn Functionality', function () {
     expect(result).toEqual('5.00');
   });
 
-  it('should return commission = 0.06, if calculated commission <= cash in max amount (5.0)', function () {
+  it('should return commission = 0.06, if calculated commission <= cash in max amount (5.0)', () => {
     const inputData = {
       date: '2016-01-10',
       user_id: 2,
@@ -28,7 +28,7 @@ describe('Test CashIn Functionality', function () {
     expect(result).toEqual('0.06');
   });
 
-  it('should return to its nearest cent 0.18, if calculated commission = 0.174', function () {
+  it('should return to its nearest cent 0.18, if calculated commission = 0.174', () => {
     const inputData = {
       date: '2016-01-10',
       user_id: 2,

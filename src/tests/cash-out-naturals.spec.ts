@@ -1,6 +1,6 @@
-import cashOutNaturalsService from '../src/lib/cash-out-natural-users-service';
-import { cashOutNaturals } from '../src/lib/cash-out-naturals';
-import { IInputData } from '../src/interfaces';
+import cashOutNaturalsService from '../lib/cash-out-natural-users-service';
+import { cashOutNaturals } from '../lib/cash-out-naturals';
+import { IInputData } from '../interfaces';
 
 describe('Test CashOutNaturals User function', () => {
   describe('A natural user tried to cash out first time in a week (Monday - Sunday)', () => {

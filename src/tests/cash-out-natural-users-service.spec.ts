@@ -1,5 +1,5 @@
-import cashOutNaturalsService from '../src/lib/cash-out-natural-users-service';
-import { IInputData, IUserMap } from '../src/interfaces';
+import cashOutNaturalsService from '../lib/cash-out-natural-users-service';
+import { IInputData, IUserMap } from '../interfaces';
 
 describe('Test CashOut natural user service', () => {
   describe('Test insert user Function', () => {
